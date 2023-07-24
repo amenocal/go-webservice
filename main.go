@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/amenocal/go-webservice/controllers"
+)
 
 func main() {
-	fmt.Println("Hello, World Module!")
+	controllers.RegisterControllers()
+	fmt.Println("Starting Server...")
+	http.ListenAndServe(":3000", nil) //second parameter is the ServeMux or Serve multiplexer, object that will handle all request s that are coming in.
+
 }
